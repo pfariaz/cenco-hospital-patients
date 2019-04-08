@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
-          model: 'Hospital',
+          model: 'Hospitals',
           key: 'id'
         }
       },
@@ -40,5 +40,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
+  MedicalConsultation.associate = function associate(models) {
+    MedicalConsultation.belongsTo(models.Hospital, { foreignKey: 'hospitalId' });
+  };
   return MedicalConsultation;
 };

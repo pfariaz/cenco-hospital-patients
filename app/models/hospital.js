@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Hospital.associate = function associate(models) {
     Hospital.hasMany(models.MedicalConsultation, { foreignKey: 'hospitalId' });
+    Hospital.hasMany(models.Patient, { foreignKey: 'hospitalId' });
   };
   return Hospital;
 };
